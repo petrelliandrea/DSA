@@ -3,8 +3,8 @@
 class Queue {
   constructor() {
     this.elements = [];
-    this.head = 0;
-    this.tail = 0;
+    this.head = 0; // first element
+    this.tail = 0; // last element 
   }
 
   enqueue(element) { // insert on the queue
@@ -13,7 +13,7 @@ class Queue {
 
   dequeue() {   // remove element 
     const removedElement = this.elements[this.head++];
-    delete this.elements[this.head - 1];
+    this.elements[this.head - 1] = null;
     return removedElement;
   }
 
