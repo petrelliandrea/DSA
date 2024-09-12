@@ -10,6 +10,7 @@ class LinkedList {
 		this.head = null;
 		this.size = 0;
 	}
+	
 	add(element) {
 		let node = new Node(element);
 		let current;
@@ -26,6 +27,7 @@ class LinkedList {
 		}
 		this.size++;
 	}
+	
 	insertAt(element, index) {
 		if (index < 0 || index > this.size)
 			return console.log("Please enter a valid index.");
@@ -53,6 +55,7 @@ class LinkedList {
 			this.size++;
 		}
 	}
+	
 	removeFrom(index) {
 		if (index < 0 || index >= this.size)
 			return console.log("Please Enter a valid index");
@@ -76,6 +79,7 @@ class LinkedList {
 			return curr.element;
 		}
 	}
+	
 	removeElement(element) {
 		let current = this.head;
 		let prev = null;
@@ -96,7 +100,6 @@ class LinkedList {
 		return -1;
 	}
 
-
 	indexOf(element) {
 		let count = 0;
 		let current = this.head;
@@ -110,6 +113,7 @@ class LinkedList {
 		return -1;
 	}
 
+	
 	isEmpty() {
 		return this.size == 0;
 	}
@@ -117,7 +121,6 @@ class LinkedList {
 	size_of_list() {
 		console.log(this.size);
 	}
-
 
 	printList() {
 		let curr = this.head;
