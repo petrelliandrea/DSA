@@ -1,56 +1,36 @@
-class Node {
-	constructor(data){
-		this.data = data;
-		this.next = null;
-	}
-}
-
-
 class Queue {
-	
-	public length;	
-	private head = Node;
-	private tail = Node;
+  constructor() {
+    this.elements = [];
+    this.head = 0;
+    this.tail = 0;
+  }
 
-	constructor(){
-		this.head = this.tail = undefined;	
-		this.length = 0;	
-	}
+  enqueue(element) {
+    this.elements[this.tail++] = element;
+  }
 
-	enqueue(item){
-		const node = {value: item} as Node;
-		this.length++;
-		if(this.tail === 0) {
-			this.tail = this.head = node;
-		}
+  dequeue() {
+    const removedElement = this.elements[this.head++];
+    delete this.elements[this.head - 1];
+    return removedElement;
+  }
 
-		this.tail.next = node;
-		this.tail = node;
-	}
+  peek() {
+    return this.elements[this.head];
+  }
 
-	deque(){
-		if(!this.head){
-			return undefine;
-		} 
-		
-		this.length--;
-		
-		const head = this.head;
-		this.head = this.head.next;
+  isEmpty() {
+    return this.tail - this.head === 0;
+  }
 
-		head.next = undefine;
-
-		return head.value;
-	}
-	
-	peek(){
-		return this.head.value;
-	}
-
+  size() {
+    return this.tail - this.head;
+  }
 }
-
-
 
 
 const f = new Queue;
-f.enque(10);
+f.enqueue(10);
+
+
+console.log(f.size())
