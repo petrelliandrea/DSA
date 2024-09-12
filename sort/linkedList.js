@@ -148,7 +148,3 @@ console.log(ll.indexOf(10)) // Return index of (n)
 ll.size_of_list(); // Return size of list
 
 ll.printList()
-
-
-
-
