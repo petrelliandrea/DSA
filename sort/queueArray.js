@@ -17,7 +17,7 @@ class Queue {
     return removedElement;
   }
 
-  peek() { // return num of element
+  peek() { // return first element (head)
     return this.elements[this.head];
   }
 
