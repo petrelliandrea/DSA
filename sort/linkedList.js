@@ -18,7 +18,7 @@ class LinkedList {
 		if (this.head == null)
 			this.head = node;
 		else {
-			current = this.head;
+			current = this.head; // if List is not empty current take the value of first node, this.head and with the next while scan all node. 
 			while (current.next) {
 				current = current.next;
 			}
