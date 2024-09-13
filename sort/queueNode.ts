@@ -14,7 +14,17 @@ export default class queueNode<T> {
 
 
 	constructor(){
-		this.head = this.tail = undefined;
+		this.head = this.tail = undefined;  
+		// this.head first node on the list, this.tail point always on the last value in the list.
+		// FIFO (First In Last Out    
+		//  head -> 10 -> 20 -> 30 -> undefined
+		//  tail -> 30 
+		//  head -> 10 -> 20 -> undefined 
+		//  tail -> 20 
+		//  head -> 10 -> undefined
+		//  tail -> 10 
+		//  head -> undefined
+		//  tail -> undefined
 		this.length = 0;
 	}
 
@@ -30,15 +40,15 @@ export default class queueNode<T> {
 		this.tail = Node;
 	}
 	
-	qeque(): T | undefined {
+	deque(): T | undefined {
 		if (!this.head){
 			return undefined;
 		}
 		this.length--;
-		const head = this.head;
-		this.head = this.head.next;
-		head.next = undefined;
-		return head.value;
+		const head = this.head; // Save the current head 
+		this.head = this.head.next; // Head became the next node
+		head.next = undefined; // Remove the old node from the list
+		return head.value; // Return the element removed
 	}
 
 	peek(): T | undefined {
@@ -52,11 +62,8 @@ const qu = new queueNode();
 qu.enqueue(10)
 qu.enqueue(20)
 qu.enqueue(30)
-qu.enqueue(50)
-qu.enqueue(60)
-qu.enqueue(20)
 
+console.log("Head Value: " + qu.peek());
+console.log("Remove fist element (HEAD): " + qu.deque());
+console.log("Head Value: " + qu.peek())
 
-console.log(qu.peek())
-qu.qeque();
-console.log(qu.peek())
